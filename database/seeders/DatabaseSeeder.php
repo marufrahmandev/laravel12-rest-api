@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
 
 
         //HAS MANY RELATIONSHIP
-        User::factory(50)
+        User::factory(2)
             ->has(Post::factory()->count(1))
             ->create();
 

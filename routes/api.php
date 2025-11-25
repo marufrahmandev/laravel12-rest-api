@@ -19,9 +19,7 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('posts', APIV1PostController::class);
 });
 
-Route::prefix('v2')->group(function () {
-    Route::apiResource('posts', APIV2PostController::class);
-});
+
 
 
 

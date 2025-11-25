@@ -46,37 +46,31 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Post $post)
     {
-        $post = Post::find($id);
-        return response()->json([
-            'data' => $post,
-            'message' => 'Post fetched  successfully',
-        ]);
+        return response()->json($post);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Post $post)
     {
-        $post = Post::find($id);
-        $post->update($request->all());
-        return response()->json([
-            'data' => $post,
-            'message' => 'Post updated  successfully',
+        $data = request()->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string'
         ]);
+        $post->update($data);
+
+        return $post;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Post $post)
     {
-        $post = Post::find($id);
         $post->delete();
-        return response()->json([
-            'message' => 'Post deleted  successfully',
-        ]);
+        return response()->noContent();
     }
 }
