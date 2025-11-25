@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
 use App\Http\Requests\StorePostRequest;
+use App\Http\Resources\PostRecource;
 
 class PostController extends Controller
 {
@@ -15,11 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return response()->json([
-            'data' => $posts,
-            'message' => 'Posts fetched  successfully',
-        ]);
+        return PostRecource::collection(Post::all());
     }
 
     /**
@@ -30,13 +27,9 @@ class PostController extends Controller
 
         $data = $request->validated();
 
-
         $post = Post::create($data);
 
-        return response()->json([
-            'data' => $post,
-            'message' => 'Post created  successfully',
-        ], 201);
+        return new PostRecource($post);
     }
 
     /**
@@ -44,7 +37,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return response()->json($post);
+        return new PostRecource($post);
     }
 
     /**
@@ -58,7 +51,7 @@ class PostController extends Controller
         ]);
         $post->update($data);
 
-        return $post;
+        return new PostRecource($post);
     }
 
     /**

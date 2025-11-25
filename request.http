@@ -11,9 +11,9 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "title": "Title 2",
-    "content": "Content 2",
-    "author_id": 1,
+    "title": "Title 3",
+    "content": "Content 3",
+    "author_id": 1
 }
 
 
@@ -29,7 +29,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "title": "Post 1 Updated",
+    "title": "Post 2 Updated",
     "content": "Content 1 Updated"
 }
 
