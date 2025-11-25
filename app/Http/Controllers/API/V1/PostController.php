@@ -16,7 +16,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        return PostRecource::collection(Post::all());
+        //return PostRecource::collection(Post::all());
+        // return PostRecource::collection(Post::with('author')->get());
+
+        return PostRecource::collection(Post::with('author')->paginate(10));
     }
 
     /**

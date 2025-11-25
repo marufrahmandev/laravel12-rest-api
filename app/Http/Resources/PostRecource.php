@@ -21,7 +21,8 @@ class PostRecource extends JsonResource
             'content' => $this->content,
             'created_at' => $this->created_at->format('Y-m-d'),
             'updated_at' => $this->updated_at->format('Y-m-d'),
-            'author' => new UserRecource($this->author)
+            //'author' => new UserRecource($this->author)
+            'author' => new UserRecource($this->whenLoaded('author')),
 
         ];
     }
