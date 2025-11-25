@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API\V1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -12,9 +14,10 @@ class PostController extends Controller
      */
     public function index()
     {
+        $posts = Post::all();
         return response()->json([
-            'message' => 'Posts fetched FROM V1 successfully',
-            'data' => 'Posts FROM V1',
+            'data' => $posts,
+            'message' => 'Posts fetched  successfully',
         ]);
     }
 
@@ -23,10 +26,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
+        $data = request()->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'author_id' => 'required'
+        ]);
+
+
+
+        $post = Post::create($data);
+
         return response()->json([
-            'message' => 'Post created FROM V1 successfully',
-            'data' => $request->all(),
-        ])->setStatusCode(201);
+            'data' => $post,
+            'message' => 'Post created  successfully',
+        ], 201);
     }
 
     /**
@@ -34,9 +48,10 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
+        $post = Post::find($id);
         return response()->json([
-            'message' => 'Post fetched FROM V1 successfully',
-            'data' => "Post \"$id\" fetched successfully",
+            'data' => $post,
+            'message' => 'Post fetched  successfully',
         ]);
     }
 
@@ -45,9 +60,11 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $post = Post::find($id);
+        $post->update($request->all());
         return response()->json([
-            'message' => 'Post updated FROM V1 successfully',
-            'data' => $request->all(),
+            'data' => $post,
+            'message' => 'Post updated  successfully',
         ]);
     }
 
@@ -56,9 +73,10 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
+        $post = Post::find($id);
+        $post->delete();
         return response()->json([
-            'message' => 'Post deleted FROM V1 successfully',
-            'data' => "Post \"$id\" deleted successfully",
+            'message' => 'Post deleted  successfully',
         ]);
     }
 }

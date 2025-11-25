@@ -11,8 +11,9 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "title": "Post 1",
-    "content": "Content 1"
+    "title": "Post 2",
+    "content": "Content 2",
+    "author_id": 4
 }
 
 ### Show a post
@@ -36,52 +37,4 @@ Accept: application/json
 DELETE http://localhost:8000/api/v1/posts/1
 Content-Type: application/json
 Accept: application/json
-
-
-
-### Get all posts from v2
-
-GET http://localhost:8000/api/v2/posts
-Content-Type: application/json
-Accept: application/json
-
-
-### Create a new post from v2
-
-POST http://localhost:8000/api/v2/posts
-Content-Type: application/json
-Accept: application/json                
-
-
-{
-    "title": "Post 1",
-    "content": "Content 1"
-}
-
-### Show a post from v2
-
-GET http://localhost:8000/api/v2/posts/1
-Content-Type: application/json
-Accept: application/json
-
-### Update a post from v2
-
-PUT http://localhost:8000/api/v2/posts/1
-Content-Type: application/json
-Accept: application/json
-
-{
-    "title": "Post 1 Updated",
-    "content": "Content 1 Updated"
-}
-
-### Delete a post from v2
-
-DELETE http://localhost:8000/api/v2/posts/1             
-
-### Delete a post from v2
-
-DELETE http://localhost:8000/api/v2/posts/1
-Content-Type: application/json
-Accept: application/json                
 

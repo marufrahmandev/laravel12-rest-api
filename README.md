@@ -3,6 +3,7 @@
 ```
 1. php artisan make:controller PostController --api
 2. php artisan make:controller API/V1/PostController --api
+3. php artisan migrate:rollback --step=1
 
 ```
 
