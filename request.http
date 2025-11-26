@@ -3,6 +3,7 @@
 GET http://localhost:8000/api/v1/posts?page=1
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer 2|MjT8gXtGVI1jwIl5XamQjDUA6PNM33IWZLnIHd1J37b71873
 
 
 ### Create a new post
@@ -38,4 +39,35 @@ Accept: application/json
 DELETE http://localhost:8000/api/v1/posts/1
 Content-Type: application/json
 Accept: application/json
+
+
+### Register a new user
+POST http://localhost:8000/api/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Maruf Rahman",
+    "email": "maruf@gmail.com",
+    "password": "12345678",
+    "password_confirmation": "12345678"
+}
+
+
+### Login a user
+POST http://localhost:8000/api/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "maruf@gmail.com",
+    "password": "12345678"
+}
+
+
+### Logout a user
+POST http://localhost:8000/api/logout
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|teoSsZDCDyN7VrKzkGYoYmbfo7A74aVxHBj88orI654bdcae
 

@@ -7,6 +7,8 @@
 2. php artisan make:controller API/V1/PostController --api
 3. php artisan migrate:rollback --step=1
 4. php artisan make:request StorePostRequest
+5. composer require laravel/breeze --dev
+6. php artisan breeze:install
 
 ```
 
