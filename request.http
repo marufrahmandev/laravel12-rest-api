@@ -19,9 +19,11 @@ Accept: application/json
 
 
 ### Show a post
-GET http://localhost:8000/api/v1/posts/1
+GET http://localhost:8000/api/v1/posts/500
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer 3|IV8gsCFn8KbLAX6q9BDWLoylSITaUwiwNSM8VIyq65f23bc1
+
 
 
 ### Update a post
@@ -69,5 +71,14 @@ Accept: application/json
 POST http://localhost:8000/api/logout
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer 1|teoSsZDCDyN7VrKzkGYoYmbfo7A74aVxHBj88orI654bdcae
+Authorization: Bearer 2|MjT8gXtGVI1jwIl5XamQjDUA6PNM33IWZLnIHd1J37b71873
 
+
+### Hello World
+POST http://localhost:8000/api/hello
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "maruf@gmail.com"
+}

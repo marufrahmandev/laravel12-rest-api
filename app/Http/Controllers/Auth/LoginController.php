@@ -23,8 +23,6 @@ class LoginController extends Controller
 
         $token = $user->createToken('auth_token')->plainTextToken;
 
-        //$request->session()->regenerate();
-
         return response()->json([
             'status' => 'success',
             'message' => 'User logged in successfully',
@@ -39,10 +37,7 @@ class LoginController extends Controller
     public function destroy(Request $request): Response
     {
         $user = $request->user();
-        // Revoke all tokens...
-        $user->tokens()->delete();
 
-        // Revoke the token that was used to authenticate the current request...
         $user->currentAccessToken()->delete();
 
 
